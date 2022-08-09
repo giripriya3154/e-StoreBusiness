@@ -1,0 +1,57 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: creditcard
+  labels:
+    name: creditcard
+spec:
+  ports:
+    - nodePort: 30165
+      port: 80
+      targetPort: 9001
+      protocol: TCP
+  selector:
+    app: creditcard
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creditcard
+spec:
+  selector:
+    matchLabels:
+      app: creditcard
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: creditcard
+    spec:
+      containers:
+        - name: creditcard
+          image: priyagiri/creditcard-service:1.0 
+          ports:
+            - containerPort: 9001
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config  # name of configMap
+                  key: host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: name
+            - name: DB_USERNAME  # Setting Database username from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user # Secret Name
+                  key: username
+            - name: DB_PASSWORD # Setting Database password from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: password

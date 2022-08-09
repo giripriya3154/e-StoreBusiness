@@ -1,0 +1,57 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: shipping
+  labels:
+    name: shipping
+spec:
+  ports:
+    - nodePort: 30168
+      port: 80
+      targetPort: 9008
+      protocol: TCP
+  selector:
+    app: shipping
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+spec:
+  selector:
+    matchLabels:
+      app: shipping
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: shipping
+    spec:
+      containers:
+        - name: shipping
+          image: priyagiri/shipping-component:3.0
+          ports:
+            - containerPort: 9008
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config  # name of configMap
+                  key: host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: name
+            - name: DB_USERNAME  # Setting Database username from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user # Secret Name
+                  key: username
+            - name: DB_PASSWORD # Setting Database password from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: password

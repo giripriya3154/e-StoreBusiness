@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/account_service/account_service.iml" filepath="$PROJECT_DIR$/account_service/account_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/authentication_service/authentication_service.iml" filepath="$PROJECT_DIR$/authentication_service/authentication_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bankaccount_service/bankaccount_service.iml" filepath="$PROJECT_DIR$/bankaccount_service/bankaccount_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudconfig_server/cloudconfig_server.iml" filepath="$PROJECT_DIR$/cloudconfig_server/cloudconfig_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creditcard_service/creditcard_service.iml" filepath="$PROJECT_DIR$/creditcard_service/creditcard_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka_service/eureka_service.iml" filepath="$PROJECT_DIR$/eureka_service/eureka_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway_service/gateway_service.iml" filepath="$PROJECT_DIR$/gateway_service/gateway_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/miniproject2.iml" filepath="$PROJECT_DIR$/.idea/miniproject2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order_service/order_service.iml" filepath="$PROJECT_DIR$/order_service/order_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paypal_service/paypal_service.iml" filepath="$PROJECT_DIR$/paypal_service/paypal_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product_service/product_service.iml" filepath="$PROJECT_DIR$/product_service/product_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shipping_service/shipping_service.iml" filepath="$PROJECT_DIR$/shipping_service/shipping_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction_service/transaction_service.iml" filepath="$PROJECT_DIR$/transaction_service/transaction_service.iml" />
+    </modules>
+  </component>
+</project>

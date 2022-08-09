@@ -1,0 +1,54 @@
+#server:
+#  port: 8762
+#
+#spring:
+#  application:
+#    name: API-GATEWAY
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: PAYMENT-SERVICE
+#          uri: lb://PAYMENT-SERVICE
+#          predicates:
+#            - Path=/accounts/**
+#        - id: PAYPAL-SERVICE
+#          uri: lb://PAYPAL-SERVICE
+#          predicates:
+#            - Path=/paypals/**
+#        - id: CREDITCARD-SERVICE
+#          uri: lb://CREDITCARD-SERVICE
+#          predicates:
+#            - Path=/creditcards/**
+#        - id: BANKACCOUNT-SERVICE
+#          uri: lb://BANKACCOUNT-SERVICE
+#          predicates:
+#            - Path=/bankaccounts/**
+#        - id: ORDER-SERVICE
+#          uri: lb://ORDER-SERVICE
+#          predicates:
+#            - Path=/orders/**
+#        - id: PRODUCT-SERVICE
+#          uri: lb://PRODUCT-SERVICE
+#          predicates:
+#            - Path=/products/**
+#        - id: TRANSACTION-SERVICE
+#          uri: lb://TRANSACTION-SERVICE
+#          predicates:
+#            - Path=/transactions/**
+#        - id: AUTHENTICATION-SERVICE
+#          uri: lb://AUTHENTICATION-SERVICE
+#          predicates:
+#            - Path=/authenticate/**
+#        - id: AUTHENTICATION-SERVICE
+#            uri: lb://AUTHENTICATION-SERVICE
+#            predicates:
+#              - Path=/authenticate/**
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: localhost

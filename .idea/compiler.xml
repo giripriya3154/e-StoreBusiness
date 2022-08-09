@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="paypal_service" />
+        <module name="shipping_service" />
+        <module name="authentication_service" />
+        <module name="eureka_service" />
+        <module name="order_service" />
+        <module name="account_service" />
+        <module name="creditcard_service" />
+        <module name="product_service" />
+        <module name="bankaccount_service" />
+        <module name="transaction_service" />
+        <module name="cloudconfig_server" />
+        <module name="gateway_service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account_service" target="16" />
+      <module name="authentication_service" target="1.8" />
+      <module name="bankaccount_service" target="16" />
+      <module name="cloudconfig_server" target="16" />
+      <module name="creditcard_service" target="16" />
+      <module name="eureka_service" target="16" />
+      <module name="gateway_service" target="16" />
+      <module name="order_service" target="16" />
+      <module name="paypal_service" target="16" />
+      <module name="product_service" target="16" />
+      <module name="shipping_service" target="16" />
+      <module name="transaction_service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account_service" options="-parameters" />
+      <module name="authentication_service" options="-parameters" />
+      <module name="bankaccount_service" options="-parameters" />
+      <module name="cloudconfig_server" options="-parameters" />
+      <module name="creditcard_service" options="-parameters" />
+      <module name="eureka_service" options="-parameters" />
+      <module name="gateway_service" options="-parameters" />
+      <module name="order_service" options="-parameters" />
+      <module name="paypal_service" options="-parameters" />
+      <module name="product_service" options="-parameters" />
+      <module name="shipping_service" options="-parameters" />
+      <module name="transaction_service" options="-parameters" />
+    </option>
+  </component>
+</project>

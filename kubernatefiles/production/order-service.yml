@@ -1,0 +1,57 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: order
+  labels:
+    name: order
+spec:
+  ports:
+    - nodePort: 30167
+      port: 80
+      targetPort: 9006
+      protocol: TCP
+  selector:
+    app: order
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+spec:
+  selector:
+    matchLabels:
+      app: order
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+        - name: order
+          image: priyagiri/order-service:1.0
+          ports:
+            - containerPort: 9006
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config  # name of configMap
+                  key: host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: name
+            - name: DB_USERNAME  # Setting Database username from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user # Secret Name
+                  key: username
+            - name: DB_PASSWORD # Setting Database password from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: db-user
+                  key: password
